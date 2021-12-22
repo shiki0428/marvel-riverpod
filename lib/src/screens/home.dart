@@ -22,6 +22,11 @@ class CharacterPagination with _$CharacterPagination {
   }) = _CharacterPagination;
 }
 
+///
+///viewmodelの役割っぽい
+///非同期処理によってキャラクターデータを入手しているように見える。
+///
+///repositoryプロバイダーをwatchすることでデータ取得を可能としている。
 final characterPages = FutureProvider.autoDispose
     .family<MarvelListCharactersReponse, CharacterPagination>(
   (ref, meta) async {

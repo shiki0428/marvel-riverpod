@@ -22,6 +22,8 @@ final dioProvider = Provider((ref) => Dio());
 
 final repositoryProvider = Provider((ref) => MarvelRepository(ref.read));
 
+///
+///色々な情報をここで扱っている　djangoのモデルみたいな印象
 class MarvelRepository {
   MarvelRepository(
     this._read, {
@@ -33,6 +35,13 @@ class MarvelRepository {
   final int Function() _getCurrentTimestamp;
   final _characterCache = <String, Character>{};
 
+  ///
+  ///キャラクターごとに取得できるようなもの？
+  ///検索機能を実装している
+  ///NameFilterに該当するキャラクターを検索リストに表示
+  ///
+  ///resultにMarvelListCharactersReponseにして保持している。
+  ///result を返す
   Future<MarvelListCharactersReponse> fetchCharacters({
     required int offset,
     int? limit,
@@ -40,7 +49,7 @@ class MarvelRepository {
     CancelToken? cancelToken,
   }) async {
     final cleanNameFilter = nameStartsWith?.trim();
-
+    print(cleanNameFilter);
     final response =
         await _get('characters', queryParameters: <String, Object?>{
       'offset': offset,
@@ -48,6 +57,7 @@ class MarvelRepository {
       if (cleanNameFilter != null && cleanNameFilter.isNotEmpty)
         'nameStartsWith': cleanNameFilter,
     });
+    print(response.data.results.map((value) => value["thumbnail"]));
 
     final result = MarvelListCharactersReponse(
       characters: response.data.results.map((e) {
@@ -55,7 +65,7 @@ class MarvelRepository {
       }).toList(growable: false),
       totalCount: response.data.total,
     );
-
+    print(result.totalCount);
     for (final character in result.characters) {
       _characterCache[character.id.toString()] = character;
     }
@@ -63,6 +73,10 @@ class MarvelRepository {
     return result;
   }
 
+  ///fetchCharacter
+  ///
+  ///右下のボタンを押すと実行される
+  ///仕様はあまりわからなかった
   Future<Character> fetchCharacter(
     String id, {
     CancelToken? cancelToken,
@@ -74,9 +88,18 @@ class MarvelRepository {
     }
 
     final response = await _get('characters/$id', cancelToken: cancelToken);
+    print(response.data.results[0]["name"]);
     return Character.fromJson(response.data.results.single);
   }
 
+  ///
+  ///getの実装について
+  ///引数にpath => https://~
+  ///     queryPrameters => key,timestamp 等
+  ///     cancelToken => わからない　おそらくtokenが取れたかどうかの判定？
+  ///
+  /// それらの情報を含んで　dio.get後
+  /// 返ってきたresponse情報をMarvelResponse型に変換して返す
   Future<MarvelResponse> _get(
     String path, {
     Map<String, Object?>? queryParameters,
@@ -90,6 +113,9 @@ class MarvelRepository {
           utf8.encode('$timestamp${configs.privateKey}${configs.publicKey}'),
         )
         .toString();
+
+    ///
+    ///dioProviderのgetメソッドをreadしている。
 
     final result = await _read(dioProvider).get<Map<String, Object?>>(
       'https://gateway.marvel.com/v1/public/$path',

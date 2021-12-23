@@ -2,6 +2,43 @@
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$_ImagePostResponse _$_$_ImagePostResponseFromJson(Map<String, dynamic> json) {
+  return _$_ImagePostResponse(
+    ImagePostData.fromJson(json['data'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_ImagePostResponseToJson(
+        _$_ImagePostResponse instance) =>
+    <String, dynamic>{
+      'data': instance.data,
+    };
+
+_$_ImagePostData _$_$_ImagePostDataFromJson(Map<String, dynamic> json) {
+  return _$_ImagePostData(
+    (json['results'] as List<dynamic>)
+        .map((e) => e as Map<String, dynamic>)
+        .toList(),
+  );
+}
+
+Map<String, dynamic> _$_$_ImagePostDataToJson(_$_ImagePostData instance) =>
+    <String, dynamic>{
+      'results': instance.results,
+    };
+
+_$_Post _$_$_PostFromJson(Map<String, dynamic> json) {
+  return _$_Post(
+    picture: json['picture'] as String,
+    title: json['title'] as String,
+  );
+}
+
+Map<String, dynamic> _$_$_PostToJson(_$_Post instance) => <String, dynamic>{
+      'picture': instance.picture,
+      'title': instance.title,
+    };
+
 _$_Character _$_$_CharacterFromJson(Map<String, dynamic> json) {
   return _$_Character(
     id: json['id'] as int,

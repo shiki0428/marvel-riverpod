@@ -12,6 +12,612 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+ImagePostResponse _$ImagePostResponseFromJson(Map<String, dynamic> json) {
+  return _ImagePostResponse.fromJson(json);
+}
+
+/// @nodoc
+class _$ImagePostResponseTearOff {
+  const _$ImagePostResponseTearOff();
+
+  _ImagePostResponse call(ImagePostData data) {
+    return _ImagePostResponse(
+      data,
+    );
+  }
+
+  ImagePostResponse fromJson(Map<String, Object> json) {
+    return ImagePostResponse.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $ImagePostResponse = _$ImagePostResponseTearOff();
+
+/// @nodoc
+mixin _$ImagePostResponse {
+  ImagePostData get data => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ImagePostResponseCopyWith<ImagePostResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ImagePostResponseCopyWith<$Res> {
+  factory $ImagePostResponseCopyWith(
+          ImagePostResponse value, $Res Function(ImagePostResponse) then) =
+      _$ImagePostResponseCopyWithImpl<$Res>;
+  $Res call({ImagePostData data});
+
+  $ImagePostDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class _$ImagePostResponseCopyWithImpl<$Res>
+    implements $ImagePostResponseCopyWith<$Res> {
+  _$ImagePostResponseCopyWithImpl(this._value, this._then);
+
+  final ImagePostResponse _value;
+  // ignore: unused_field
+  final $Res Function(ImagePostResponse) _then;
+
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_value.copyWith(
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ImagePostData,
+    ));
+  }
+
+  @override
+  $ImagePostDataCopyWith<$Res> get data {
+    return $ImagePostDataCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$ImagePostResponseCopyWith<$Res>
+    implements $ImagePostResponseCopyWith<$Res> {
+  factory _$ImagePostResponseCopyWith(
+          _ImagePostResponse value, $Res Function(_ImagePostResponse) then) =
+      __$ImagePostResponseCopyWithImpl<$Res>;
+  @override
+  $Res call({ImagePostData data});
+
+  @override
+  $ImagePostDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$ImagePostResponseCopyWithImpl<$Res>
+    extends _$ImagePostResponseCopyWithImpl<$Res>
+    implements _$ImagePostResponseCopyWith<$Res> {
+  __$ImagePostResponseCopyWithImpl(
+      _ImagePostResponse _value, $Res Function(_ImagePostResponse) _then)
+      : super(_value, (v) => _then(v as _ImagePostResponse));
+
+  @override
+  _ImagePostResponse get _value => super._value as _ImagePostResponse;
+
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_ImagePostResponse(
+      data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ImagePostData,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_ImagePostResponse implements _ImagePostResponse {
+  _$_ImagePostResponse(this.data);
+
+  factory _$_ImagePostResponse.fromJson(Map<String, dynamic> json) =>
+      _$_$_ImagePostResponseFromJson(json);
+
+  @override
+  final ImagePostData data;
+
+  @override
+  String toString() {
+    return 'ImagePostResponse(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ImagePostResponse &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ImagePostResponseCopyWith<_ImagePostResponse> get copyWith =>
+      __$ImagePostResponseCopyWithImpl<_ImagePostResponse>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_ImagePostResponseToJson(this);
+  }
+}
+
+abstract class _ImagePostResponse implements ImagePostResponse {
+  factory _ImagePostResponse(ImagePostData data) = _$_ImagePostResponse;
+
+  factory _ImagePostResponse.fromJson(Map<String, dynamic> json) =
+      _$_ImagePostResponse.fromJson;
+
+  @override
+  ImagePostData get data => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$ImagePostResponseCopyWith<_ImagePostResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+ImagePostData _$ImagePostDataFromJson(Map<String, dynamic> json) {
+  return _ImagePostData.fromJson(json);
+}
+
+/// @nodoc
+class _$ImagePostDataTearOff {
+  const _$ImagePostDataTearOff();
+
+  _ImagePostData call(List<Map<String, Object?>> results) {
+    return _ImagePostData(
+      results,
+    );
+  }
+
+  ImagePostData fromJson(Map<String, Object> json) {
+    return ImagePostData.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $ImagePostData = _$ImagePostDataTearOff();
+
+/// @nodoc
+mixin _$ImagePostData {
+  List<Map<String, Object?>> get results => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ImagePostDataCopyWith<ImagePostData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ImagePostDataCopyWith<$Res> {
+  factory $ImagePostDataCopyWith(
+          ImagePostData value, $Res Function(ImagePostData) then) =
+      _$ImagePostDataCopyWithImpl<$Res>;
+  $Res call({List<Map<String, Object?>> results});
+}
+
+/// @nodoc
+class _$ImagePostDataCopyWithImpl<$Res>
+    implements $ImagePostDataCopyWith<$Res> {
+  _$ImagePostDataCopyWithImpl(this._value, this._then);
+
+  final ImagePostData _value;
+  // ignore: unused_field
+  final $Res Function(ImagePostData) _then;
+
+  @override
+  $Res call({
+    Object? results = freezed,
+  }) {
+    return _then(_value.copyWith(
+      results: results == freezed
+          ? _value.results
+          : results // ignore: cast_nullable_to_non_nullable
+              as List<Map<String, Object?>>,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$ImagePostDataCopyWith<$Res>
+    implements $ImagePostDataCopyWith<$Res> {
+  factory _$ImagePostDataCopyWith(
+          _ImagePostData value, $Res Function(_ImagePostData) then) =
+      __$ImagePostDataCopyWithImpl<$Res>;
+  @override
+  $Res call({List<Map<String, Object?>> results});
+}
+
+/// @nodoc
+class __$ImagePostDataCopyWithImpl<$Res>
+    extends _$ImagePostDataCopyWithImpl<$Res>
+    implements _$ImagePostDataCopyWith<$Res> {
+  __$ImagePostDataCopyWithImpl(
+      _ImagePostData _value, $Res Function(_ImagePostData) _then)
+      : super(_value, (v) => _then(v as _ImagePostData));
+
+  @override
+  _ImagePostData get _value => super._value as _ImagePostData;
+
+  @override
+  $Res call({
+    Object? results = freezed,
+  }) {
+    return _then(_ImagePostData(
+      results == freezed
+          ? _value.results
+          : results // ignore: cast_nullable_to_non_nullable
+              as List<Map<String, Object?>>,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_ImagePostData implements _ImagePostData {
+  _$_ImagePostData(this.results);
+
+  factory _$_ImagePostData.fromJson(Map<String, dynamic> json) =>
+      _$_$_ImagePostDataFromJson(json);
+
+  @override
+  final List<Map<String, Object?>> results;
+
+  @override
+  String toString() {
+    return 'ImagePostData(results: $results)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ImagePostData &&
+            (identical(other.results, results) ||
+                const DeepCollectionEquality().equals(other.results, results)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(results);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ImagePostDataCopyWith<_ImagePostData> get copyWith =>
+      __$ImagePostDataCopyWithImpl<_ImagePostData>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_ImagePostDataToJson(this);
+  }
+}
+
+abstract class _ImagePostData implements ImagePostData {
+  factory _ImagePostData(List<Map<String, Object?>> results) = _$_ImagePostData;
+
+  factory _ImagePostData.fromJson(Map<String, dynamic> json) =
+      _$_ImagePostData.fromJson;
+
+  @override
+  List<Map<String, Object?>> get results => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$ImagePostDataCopyWith<_ImagePostData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+class _$ImagePostListsResponseTearOff {
+  const _$ImagePostListsResponseTearOff();
+
+  _ImagePostListsResponse call({required List<Post> ImagePosts}) {
+    return _ImagePostListsResponse(
+      ImagePosts: ImagePosts,
+    );
+  }
+}
+
+/// @nodoc
+const $ImagePostListsResponse = _$ImagePostListsResponseTearOff();
+
+/// @nodoc
+mixin _$ImagePostListsResponse {
+//required int totalCount,
+  List<Post> get ImagePosts => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ImagePostListsResponseCopyWith<ImagePostListsResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ImagePostListsResponseCopyWith<$Res> {
+  factory $ImagePostListsResponseCopyWith(ImagePostListsResponse value,
+          $Res Function(ImagePostListsResponse) then) =
+      _$ImagePostListsResponseCopyWithImpl<$Res>;
+  $Res call({List<Post> ImagePosts});
+}
+
+/// @nodoc
+class _$ImagePostListsResponseCopyWithImpl<$Res>
+    implements $ImagePostListsResponseCopyWith<$Res> {
+  _$ImagePostListsResponseCopyWithImpl(this._value, this._then);
+
+  final ImagePostListsResponse _value;
+  // ignore: unused_field
+  final $Res Function(ImagePostListsResponse) _then;
+
+  @override
+  $Res call({
+    Object? ImagePosts = freezed,
+  }) {
+    return _then(_value.copyWith(
+      ImagePosts: ImagePosts == freezed
+          ? _value.ImagePosts
+          : ImagePosts // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$ImagePostListsResponseCopyWith<$Res>
+    implements $ImagePostListsResponseCopyWith<$Res> {
+  factory _$ImagePostListsResponseCopyWith(_ImagePostListsResponse value,
+          $Res Function(_ImagePostListsResponse) then) =
+      __$ImagePostListsResponseCopyWithImpl<$Res>;
+  @override
+  $Res call({List<Post> ImagePosts});
+}
+
+/// @nodoc
+class __$ImagePostListsResponseCopyWithImpl<$Res>
+    extends _$ImagePostListsResponseCopyWithImpl<$Res>
+    implements _$ImagePostListsResponseCopyWith<$Res> {
+  __$ImagePostListsResponseCopyWithImpl(_ImagePostListsResponse _value,
+      $Res Function(_ImagePostListsResponse) _then)
+      : super(_value, (v) => _then(v as _ImagePostListsResponse));
+
+  @override
+  _ImagePostListsResponse get _value => super._value as _ImagePostListsResponse;
+
+  @override
+  $Res call({
+    Object? ImagePosts = freezed,
+  }) {
+    return _then(_ImagePostListsResponse(
+      ImagePosts: ImagePosts == freezed
+          ? _value.ImagePosts
+          : ImagePosts // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_ImagePostListsResponse implements _ImagePostListsResponse {
+  _$_ImagePostListsResponse({required this.ImagePosts});
+
+  @override //required int totalCount,
+  final List<Post> ImagePosts;
+
+  @override
+  String toString() {
+    return 'ImagePostListsResponse(ImagePosts: $ImagePosts)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ImagePostListsResponse &&
+            (identical(other.ImagePosts, ImagePosts) ||
+                const DeepCollectionEquality()
+                    .equals(other.ImagePosts, ImagePosts)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(ImagePosts);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ImagePostListsResponseCopyWith<_ImagePostListsResponse> get copyWith =>
+      __$ImagePostListsResponseCopyWithImpl<_ImagePostListsResponse>(
+          this, _$identity);
+}
+
+abstract class _ImagePostListsResponse implements ImagePostListsResponse {
+  factory _ImagePostListsResponse({required List<Post> ImagePosts}) =
+      _$_ImagePostListsResponse;
+
+  @override //required int totalCount,
+  List<Post> get ImagePosts => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$ImagePostListsResponseCopyWith<_ImagePostListsResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Post _$PostFromJson(Map<String, dynamic> json) {
+  return _Post.fromJson(json);
+}
+
+/// @nodoc
+class _$PostTearOff {
+  const _$PostTearOff();
+
+  _Post call({required String picture, required String title}) {
+    return _Post(
+      picture: picture,
+      title: title,
+    );
+  }
+
+  Post fromJson(Map<String, Object> json) {
+    return Post.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $Post = _$PostTearOff();
+
+/// @nodoc
+mixin _$Post {
+  String get picture => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PostCopyWith<Post> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PostCopyWith<$Res> {
+  factory $PostCopyWith(Post value, $Res Function(Post) then) =
+      _$PostCopyWithImpl<$Res>;
+  $Res call({String picture, String title});
+}
+
+/// @nodoc
+class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
+  _$PostCopyWithImpl(this._value, this._then);
+
+  final Post _value;
+  // ignore: unused_field
+  final $Res Function(Post) _then;
+
+  @override
+  $Res call({
+    Object? picture = freezed,
+    Object? title = freezed,
+  }) {
+    return _then(_value.copyWith(
+      picture: picture == freezed
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
+  factory _$PostCopyWith(_Post value, $Res Function(_Post) then) =
+      __$PostCopyWithImpl<$Res>;
+  @override
+  $Res call({String picture, String title});
+}
+
+/// @nodoc
+class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
+    implements _$PostCopyWith<$Res> {
+  __$PostCopyWithImpl(_Post _value, $Res Function(_Post) _then)
+      : super(_value, (v) => _then(v as _Post));
+
+  @override
+  _Post get _value => super._value as _Post;
+
+  @override
+  $Res call({
+    Object? picture = freezed,
+    Object? title = freezed,
+  }) {
+    return _then(_Post(
+      picture: picture == freezed
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_Post implements _Post {
+  _$_Post({required this.picture, required this.title});
+
+  factory _$_Post.fromJson(Map<String, dynamic> json) =>
+      _$_$_PostFromJson(json);
+
+  @override
+  final String picture;
+  @override
+  final String title;
+
+  @override
+  String toString() {
+    return 'Post(picture: $picture, title: $title)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Post &&
+            (identical(other.picture, picture) ||
+                const DeepCollectionEquality()
+                    .equals(other.picture, picture)) &&
+            (identical(other.title, title) ||
+                const DeepCollectionEquality().equals(other.title, title)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(picture) ^
+      const DeepCollectionEquality().hash(title);
+
+  @JsonKey(ignore: true)
+  @override
+  _$PostCopyWith<_Post> get copyWith =>
+      __$PostCopyWithImpl<_Post>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_PostToJson(this);
+  }
+}
+
+abstract class _Post implements Post {
+  factory _Post({required String picture, required String title}) = _$_Post;
+
+  factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
+
+  @override
+  String get picture => throw _privateConstructorUsedError;
+  @override
+  String get title => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$PostCopyWith<_Post> get copyWith => throw _privateConstructorUsedError;
+}
+
 /// @nodoc
 class _$MarvelListCharactersReponseTearOff {
   const _$MarvelListCharactersReponseTearOff();

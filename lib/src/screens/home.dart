@@ -33,17 +33,21 @@ final characterPages = FutureProvider.autoDispose
     // Cancel the page request if the UI no-longer needs it before the request
     // is finished.
     // This typically happen if the user scrolls very fast
+
     final cancelToken = CancelToken();
     ref.onDispose(cancelToken.cancel);
 
     final repository = ref.watch(repositoryProvider);
+
     final charactersResponse = await repository.fetchCharacters(
       offset: meta.page * kCharactersPageLimit,
       limit: kCharactersPageLimit,
       nameStartsWith: meta.name,
       cancelToken: cancelToken,
     );
-
+    //print(charactersResponse);
+    //final imagePostsResponse = await repository.fetchImagePosts();
+    //print(imagePostsResponse);
     // Once a page was downloaded, preserve its state to avoid re-downloading it again.
     ref.maintainState = true;
     return charactersResponse;
@@ -118,7 +122,10 @@ class Home extends HookConsumerWidget {
                       titlePadding: const EdgeInsetsDirectional.only(bottom: 8),
                     ),
                     pinned: true,
-                    actions: const [
+                    actions: [
+                      FloatingActionButton(onPressed: () {
+                        print(1);
+                      }),
                       SearchBar(),
                     ],
                   ),

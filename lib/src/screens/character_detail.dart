@@ -62,7 +62,7 @@ class CharacterView extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final id = ref.watch(selectedCharacterId);
-
+    //print(id);
     return ref.watch(character(id)).when(
       loading: () {
         return const Scaffold(
@@ -79,6 +79,7 @@ class CharacterView extends HookConsumerWidget {
       data: (character) {
         return Scaffold(
           appBar: AppBar(
+            backgroundColor: Colors.blue,
             title: Text(character.name),
           ),
           body: LoadingImage(url: character.thumbnail.url),

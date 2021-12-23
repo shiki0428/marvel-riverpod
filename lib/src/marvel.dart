@@ -49,7 +49,7 @@ class MarvelRepository {
     CancelToken? cancelToken,
   }) async {
     final cleanNameFilter = nameStartsWith?.trim();
-    print(cleanNameFilter);
+    //print(cleanNameFilter);
     final response =
         await _get('characters', queryParameters: <String, Object?>{
       'offset': offset,
@@ -57,8 +57,8 @@ class MarvelRepository {
       if (cleanNameFilter != null && cleanNameFilter.isNotEmpty)
         'nameStartsWith': cleanNameFilter,
     });
-    print(response.data.results.map((value) => value["thumbnail"]));
-
+    //print(response.data.results.map((value) => value["thumbnail"]));
+    print(response.data.results);
     final result = MarvelListCharactersReponse(
       characters: response.data.results.map((e) {
         return Character.fromJson(e);
@@ -88,7 +88,7 @@ class MarvelRepository {
     }
 
     final response = await _get('characters/$id', cancelToken: cancelToken);
-    print(response.data.results[0]["name"]);
+    //print(response.data.results[0]["name"]);
     return Character.fromJson(response.data.results.single);
   }
 
@@ -128,10 +128,79 @@ class MarvelRepository {
       },
       // TODO deserialize error message
     );
+    //print(result.data!);
     return MarvelResponse.fromJson(Map<String, Object>.from(result.data!));
+  }
+
+//------------------
+
+  Future<ImagePostListsResponse> fetchImagePosts({
+    @Default(5) int? id,
+  }) async {
+    print(3);
+    final response = await _getapi();
+    print(response);
+    final result = ImagePostListsResponse(
+      ImagePosts: response.data.results.map((e) {
+        print(2);
+        return Post.fromJson(e);
+      }).toList(growable: false),
+    );
+    print(result);
+    return result;
+  }
+
+  Future<ImagePostResponse> _getapi(
+      //CancelToken? cancelToken
+      ) async {
+    print(2);
+    var response = await _read(dioProvider).get(
+      "http://127.0.0.1:8000/imagePost/Imageapi/",
+    );
+    print(response.data!);
+    final result = await _read(dioProvider).get<Map<String, dynamic>>(
+      "http://127.0.0.1:8000/imagePost/Imageapi/",
+    );
+    print(result.data.runtimeType);
+    print(ImagePostResponse.fromJson(Map<String, Object>.from(result.data!)));
+    return ImagePostResponse.fromJson(Map<String, Object>.from(result.data!));
   }
 }
 
+@freezed
+class ImagePostResponse with _$ImagePostResponse {
+  factory ImagePostResponse(ImagePostData data) = _ImagePostResponse;
+
+  factory ImagePostResponse.fromJson(Map<String, Object?> json) =>
+      _$ImagePostResponseFromJson(json);
+}
+
+@freezed
+class ImagePostData with _$ImagePostData {
+  factory ImagePostData(
+    List<Map<String, Object?>> results,
+  ) = _ImagePostData;
+
+  factory ImagePostData.fromJson(Map<String, Object?> json) =>
+      _$ImagePostDataFromJson(json);
+}
+
+@freezed
+class ImagePostListsResponse with _$ImagePostListsResponse {
+  factory ImagePostListsResponse({
+    //required int totalCount,
+    required List<Post> ImagePosts,
+  }) = _ImagePostListsResponse;
+}
+
+@freezed
+class Post with _$Post {
+  factory Post({required String picture, required String title}) = _Post;
+
+  factory Post.fromJson(Map<String, Object?> json) => _$PostFromJson(json);
+}
+
+//-----------------------------
 @freezed
 class MarvelListCharactersReponse with _$MarvelListCharactersReponse {
   factory MarvelListCharactersReponse({

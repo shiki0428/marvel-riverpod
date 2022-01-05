@@ -58,7 +58,7 @@ class MarvelRepository {
         'nameStartsWith': cleanNameFilter,
     });
     //print(response.data.results.map((value) => value["thumbnail"]));
-    print(response.data.results);
+    //print(response.data.results);
     final result = MarvelListCharactersReponse(
       characters: response.data.results.map((e) {
         return Character.fromJson(e);
@@ -139,14 +139,13 @@ class MarvelRepository {
   }) async {
     print(3);
     final response = await _getapi();
-    print(response);
+    //print(response);
     final result = ImagePostListsResponse(
       ImagePosts: response.data.results.map((e) {
-        print(2);
         return Post.fromJson(e);
       }).toList(growable: false),
     );
-    print(result);
+    //print(result);
     return result;
   }
 
@@ -155,14 +154,14 @@ class MarvelRepository {
       ) async {
     print(2);
     var response = await _read(dioProvider).get(
-      "http://127.0.0.1:8000/imagePost/Imageapi/",
+      "http://127.0.0.1:8000/api/articles/",
     );
-    print(response.data!);
+    //print(response.data!);
     final result = await _read(dioProvider).get<Map<String, dynamic>>(
-      "http://127.0.0.1:8000/imagePost/Imageapi/",
+      "http://127.0.0.1:8000/api/articles/",
     );
-    print(result.data.runtimeType);
-    print(ImagePostResponse.fromJson(Map<String, Object>.from(result.data!)));
+    //print(result.data.runtimeType);
+    //print(ImagePostResponse.fromJson(Map<String, Object>.from(result.data!)));
     return ImagePostResponse.fromJson(Map<String, Object>.from(result.data!));
   }
 }
@@ -195,7 +194,7 @@ class ImagePostListsResponse with _$ImagePostListsResponse {
 
 @freezed
 class Post with _$Post {
-  factory Post({required String picture, required String title}) = _Post;
+  factory Post({required String body, required String title}) = _Post;
 
   factory Post.fromJson(Map<String, Object?> json) => _$PostFromJson(json);
 }

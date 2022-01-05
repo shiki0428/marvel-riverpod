@@ -29,13 +29,13 @@ Map<String, dynamic> _$_$_ImagePostDataToJson(_$_ImagePostData instance) =>
 
 _$_Post _$_$_PostFromJson(Map<String, dynamic> json) {
   return _$_Post(
-    picture: json['picture'] as String,
+    body: json['body'] as String,
     title: json['title'] as String,
   );
 }
 
 Map<String, dynamic> _$_$_PostToJson(_$_Post instance) => <String, dynamic>{
-      'picture': instance.picture,
+      'body': instance.body,
       'title': instance.title,
     };
 

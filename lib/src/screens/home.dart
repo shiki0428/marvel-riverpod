@@ -13,6 +13,8 @@ import '../widgets/search_bar.dart';
 part 'home.freezed.dart';
 
 const kCharactersPageLimit = 50;
+var imagepost;
+var _meta;
 
 @freezed
 class CharacterPagination with _$CharacterPagination {
@@ -27,8 +29,8 @@ class CharacterPagination with _$CharacterPagination {
 ///非同期処理によってキャラクターデータを入手しているように見える。
 ///
 ///repositoryプロバイダーをwatchすることでデータ取得を可能としている。
-final characterPages = FutureProvider.autoDispose
-    .family<MarvelListCharactersReponse, CharacterPagination>(
+final characterPages =
+    FutureProvider.family<MarvelListCharactersReponse, CharacterPagination>(
   (ref, meta) async {
     // Cancel the page request if the UI no-longer needs it before the request
     // is finished.
@@ -46,11 +48,13 @@ final characterPages = FutureProvider.autoDispose
       cancelToken: cancelToken,
     );
     //print(charactersResponse);
-    //final imagePostsResponse = await repository.fetchImagePosts();
+    final imagePostsResponse = await repository.fetchImagePosts();
+    print(charactersResponse);
     //print(imagePostsResponse);
+    imagepost = imagePostsResponse;
     // Once a page was downloaded, preserve its state to avoid re-downloading it again.
-    ref.maintainState = true;
-    return charactersResponse;
+    //ref.maintainState = true;
+    return Future.value(charactersResponse);
   },
 );
 
@@ -77,7 +81,7 @@ final characterAtIndex = Provider.autoDispose
     page: query.offset ~/ kCharactersPageLimit,
     name: query.name,
   );
-
+  _meta = meta;
   return ref.watch(characterPages(meta)).whenData(
         (value) => value.characters[offsetInPage],
       );
@@ -123,8 +127,13 @@ class Home extends HookConsumerWidget {
                     ),
                     pinned: true,
                     actions: [
-                      FloatingActionButton(onPressed: () {
-                        print(1);
+                      FloatingActionButton(onPressed: () async {
+                        print(_meta);
+
+                        //await ref.refresh(characterPages(_meta));
+
+                        await ref.refresh(characterPages(
+                            CharacterPagination(page: 0, name: "")));
                       }),
                       SearchBar(),
                     ],

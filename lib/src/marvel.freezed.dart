@@ -464,9 +464,9 @@ Post _$PostFromJson(Map<String, dynamic> json) {
 class _$PostTearOff {
   const _$PostTearOff();
 
-  _Post call({required String picture, required String title}) {
+  _Post call({required String body, required String title}) {
     return _Post(
-      picture: picture,
+      body: body,
       title: title,
     );
   }
@@ -481,7 +481,7 @@ const $Post = _$PostTearOff();
 
 /// @nodoc
 mixin _$Post {
-  String get picture => throw _privateConstructorUsedError;
+  String get body => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -493,7 +493,7 @@ mixin _$Post {
 abstract class $PostCopyWith<$Res> {
   factory $PostCopyWith(Post value, $Res Function(Post) then) =
       _$PostCopyWithImpl<$Res>;
-  $Res call({String picture, String title});
+  $Res call({String body, String title});
 }
 
 /// @nodoc
@@ -506,13 +506,13 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? picture = freezed,
+    Object? body = freezed,
     Object? title = freezed,
   }) {
     return _then(_value.copyWith(
-      picture: picture == freezed
-          ? _value.picture
-          : picture // ignore: cast_nullable_to_non_nullable
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
               as String,
       title: title == freezed
           ? _value.title
@@ -527,7 +527,7 @@ abstract class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   factory _$PostCopyWith(_Post value, $Res Function(_Post) then) =
       __$PostCopyWithImpl<$Res>;
   @override
-  $Res call({String picture, String title});
+  $Res call({String body, String title});
 }
 
 /// @nodoc
@@ -541,13 +541,13 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? picture = freezed,
+    Object? body = freezed,
     Object? title = freezed,
   }) {
     return _then(_Post(
-      picture: picture == freezed
-          ? _value.picture
-          : picture // ignore: cast_nullable_to_non_nullable
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
               as String,
       title: title == freezed
           ? _value.title
@@ -561,28 +561,27 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_Post implements _Post {
-  _$_Post({required this.picture, required this.title});
+  _$_Post({required this.body, required this.title});
 
   factory _$_Post.fromJson(Map<String, dynamic> json) =>
       _$_$_PostFromJson(json);
 
   @override
-  final String picture;
+  final String body;
   @override
   final String title;
 
   @override
   String toString() {
-    return 'Post(picture: $picture, title: $title)';
+    return 'Post(body: $body, title: $title)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Post &&
-            (identical(other.picture, picture) ||
-                const DeepCollectionEquality()
-                    .equals(other.picture, picture)) &&
+            (identical(other.body, body) ||
+                const DeepCollectionEquality().equals(other.body, body)) &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)));
   }
@@ -590,7 +589,7 @@ class _$_Post implements _Post {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(picture) ^
+      const DeepCollectionEquality().hash(body) ^
       const DeepCollectionEquality().hash(title);
 
   @JsonKey(ignore: true)
@@ -605,12 +604,12 @@ class _$_Post implements _Post {
 }
 
 abstract class _Post implements Post {
-  factory _Post({required String picture, required String title}) = _$_Post;
+  factory _Post({required String body, required String title}) = _$_Post;
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 
   @override
-  String get picture => throw _privateConstructorUsedError;
+  String get body => throw _privateConstructorUsedError;
   @override
   String get title => throw _privateConstructorUsedError;
   @override
